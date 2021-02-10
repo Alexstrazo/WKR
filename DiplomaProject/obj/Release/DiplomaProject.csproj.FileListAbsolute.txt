@@ -1,0 +1,12 @@
+C:\Users\Александр\source\repos\DiplomaProject\DiplomaProject\bin\Release\DiplomaProject.exe.config
+C:\Users\Александр\source\repos\DiplomaProject\DiplomaProject\bin\Release\DiplomaProject.exe
+C:\Users\Александр\source\repos\DiplomaProject\DiplomaProject\bin\Release\DiplomaProject.pdb
+C:\Users\Александр\source\repos\DiplomaProject\DiplomaProject\obj\Release\DiplomaProject.csprojAssemblyReference.cache
+C:\Users\Александр\source\repos\DiplomaProject\DiplomaProject\obj\Release\DiplomaProject.Form1.resources
+C:\Users\Александр\source\repos\DiplomaProject\DiplomaProject\obj\Release\DiplomaProject.Form2.resources
+C:\Users\Александр\source\repos\DiplomaProject\DiplomaProject\obj\Release\DiplomaProject.Form3.resources
+C:\Users\Александр\source\repos\DiplomaProject\DiplomaProject\obj\Release\DiplomaProject.Properties.Resources.resources
+C:\Users\Александр\source\repos\DiplomaProject\DiplomaProject\obj\Release\DiplomaProject.csproj.GenerateResource.cache
+C:\Users\Александр\source\repos\DiplomaProject\DiplomaProject\obj\Release\DiplomaProject.csproj.CoreCompileInputs.cache
+C:\Users\Александр\source\repos\DiplomaProject\DiplomaProject\obj\Release\DiplomaProject.exe
+C:\Users\Александр\source\repos\DiplomaProject\DiplomaProject\obj\Release\DiplomaProject.pdb
