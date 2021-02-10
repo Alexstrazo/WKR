@@ -46,8 +46,18 @@ namespace DiplomaProject
                 Directory.CreateDirectory(@"./text");
                 File.AppendAllText(@"./text/comboitem.txt","");
             }
+            if (Directory.Exists(@"./text/TM")) { }
+            else
+            {
+                Directory.CreateDirectory(@"./text/TM");
+            }
+            if (Directory.Exists(@"./text/LC")) { }
+            else
+            {
+                Directory.CreateDirectory(@"./text/LC");
+            }
 
-            comboBoxFont.DrawMode = DrawMode.OwnerDrawFixed;
+                comboBoxFont.DrawMode = DrawMode.OwnerDrawFixed;
             comboBoxFont.DrawItem += comboBoxFont_DrawItem;
             
             foreach (FontFamily fontFamily in FontFamily.Families)
@@ -381,7 +391,7 @@ namespace DiplomaProject
                         string TC = textBox1.Text + "\r\n";
                         File.AppendAllText(path, TC);
 
-                        File.AppendAllText("./text/LC/" + textBox1.Text + ".rtf","");
+                        File.AppendAllText("./text/LC/" + textBox1.Text + ".rtf", @"{\rtf}");
                         listBox1.Items.Clear();
                         listBox1.Items.AddRange(File.ReadAllLines(path));
                         listBox1.SelectedItem = textBox1.Text;
