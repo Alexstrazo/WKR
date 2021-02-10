@@ -1,1 +1,9 @@
 ./DiplomaProject/bin/
+./DiplomaProject/bin/Debug
+./DiplomaProject/bin/Debug/text
+./DiplomaProject/bin/Debug/text/TM
+./DiplomaProject/bin/Debug/text/LC
+./DiplomaProject/bin/Release
+./DiplomaProject/bin/Release/text
+./DiplomaProject/bin/Release/text/TM
+./DiplomaProject/bin/Release/text/LC
