@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Data.OleDb;
 
 namespace DiplomaProject
 {
@@ -20,11 +21,13 @@ namespace DiplomaProject
         string font;
         float sizeStyle;
         int swindex = 0;
+        OleDbConnection conn = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = DPDataBase.accdb");
+
 
         public Form2()
         {
             InitializeComponent();
-            
+            this.topicsTableAdapter.Fill(this.dPDataBaseDataSet.Topics);
             Form Form1 = new Form1();
             if (listBox1.SelectedIndex == -1)
             {
@@ -35,22 +38,9 @@ namespace DiplomaProject
             openFileDialog2.Filter = "Документы|*.rtf;";
 
             comboBoxFontSize.SelectedItem = "8";
-            if (File.Exists(@"./text/comboitem.txt"))
-            {
-                comboBoxT.Items.AddRange(File.ReadAllLines(@"./text/comboitem.txt"));
-                comboBoxT.SelectedIndex = -1;
-                
-            }
-            else
-            {
-                Directory.CreateDirectory(@"./text");
-                File.AppendAllText(@"./text/comboitem.txt","");
-            }
-            if (Directory.Exists(@"./text/TM")) { }
-            else
-            {
-                Directory.CreateDirectory(@"./text/TM");
-            }
+         
+            comboBoxT.SelectedIndex = -1;
+         
             if (Directory.Exists(@"./text/LC")) { }
             else
             {
@@ -90,22 +80,24 @@ namespace DiplomaProject
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-
-
-            
         {
-            panel1.Visible = true;
-            string n = listBox1.SelectedItem.ToString() ;
-            
+            if (listBox1.SelectedIndex == -1)
+            {  }
+            else
+            {
+                panel1.Visible = true;
+                string n = listBox1.SelectedItem.ToString();
                 if (File.Exists(@"./text/LC/" + n + ".rtf"))
                 {
                     richTextBox1.LoadFile(@"./text/LC/" + n + ".rtf");
-                   
-                }     
+
+                }
                 else
-                { richTextBox1.Clear();
-                panel1.Visible = false;
-                MessageBox.Show("Файл отсутствует");
+                {
+                    richTextBox1.Clear();
+                    panel1.Visible = false;
+                    MessageBox.Show("Файл отсутствует");
+                }
             }
         }
 
@@ -165,9 +157,12 @@ namespace DiplomaProject
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string n = listBox1.SelectedItem.ToString();
-            
-            richTextBox1.SaveFile("./text/LC/" + n + ".rtf");
+            if (listBox1.SelectedIndex == -1) { }
+            else
+            {
+                string n = listBox1.SelectedItem.ToString();
+                richTextBox1.SaveFile("./text/LC/" + n + ".rtf");
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -188,18 +183,27 @@ namespace DiplomaProject
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (File.Exists(@"./text/comboitem.txt"))
+            if (comboBoxT.SelectedIndex != -1)
             {
-                listBox1.Items.Clear();
-                string path = (@"./text/TM/"+ comboBoxT.SelectedItem + ".txt");
-                if (File.Exists(path))
+                label3.Text = comboBoxT.Text;
+                string cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
+                OleDbCommand command = new OleDbCommand(cmdstr, conn);
+                IList<string> lc = new List<string>();
+                conn.Open();
+                OleDbDataReader reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    listBox1.Items.AddRange(File.ReadAllLines(path));
+                    lc.Add(reader[0].ToString());
                 }
-                
-            }
-             else { File.AppendAllText(@"./text/comboitem.txt",""); }
+                conn.Close();
+                listBox1.DataSource = lc;
+                listBox1.DisplayMember = "Lecture";
+                panel1.Visible = false;
+                listBox1.SelectedIndex = -1;
                
+
+
+            }
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -342,11 +346,6 @@ namespace DiplomaProject
 
         private void темуToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Directory.Exists(@"./text/TM")) { }
-            else
-            {
-                Directory.CreateDirectory(@"./text/TM");
-            }
             if (panel1.Visible == true)
             {
                 panel1.Visible = false;
@@ -369,17 +368,21 @@ namespace DiplomaProject
                         if (textBox1.Text == "") { MessageBox.Show("Введите название"); }
                         else
                         {
-                            string path = @"./text/comboitem.txt";
-                            string TC = textBox1.Text + "\r\n";
-                            File.AppendAllText(path, TC);
+                            string cmdstr = "SELECT COUNT(*) FROM Topics";
+                            OleDbCommand command = new OleDbCommand(cmdstr,conn);
+                            conn.Open();
+                            int count = (int)command.ExecuteScalar();
+                            conn.Close();
+                            DPDataBaseDataSetTableAdapters.TopicsTableAdapter topicsTableAdapter = new DPDataBaseDataSetTableAdapters.TopicsTableAdapter();
+                            topicsTableAdapter.Insert(count,textBox1.Text);
+                            this.topicsTableAdapter.Fill(this.dPDataBaseDataSet.Topics);
+                            string Ttext = textBox1.Text;
+                            comboBoxT.SelectedIndex = count;
 
-                            File.AppendAllText("./text/TM/" + textBox1.Text + ".txt","");
-                            listBox1.SelectedItem = textBox1.Text;
                         }
+                       
                     }
-                    comboBoxT.Items.Clear();
-                    comboBoxT.Items.AddRange(File.ReadAllLines(@"./text/comboitem.txt"));
-                    comboBoxT.SelectedItem = textBox1.Text;
+                    
                     break;
                 case 2:
                     
@@ -387,29 +390,60 @@ namespace DiplomaProject
                         if (textBox1.Text == "") { MessageBox.Show("Введите название"); }
                     else
                     {
-                        string path = (@"./text/TM/" + comboBoxT.SelectedItem + ".txt");
-                        string TC = textBox1.Text + "\r\n";
-                        File.AppendAllText(path, TC);
+                        string cmdstr = "SELECT COUNT(*) FROM Lectures";
+                        OleDbCommand command = new OleDbCommand(cmdstr, conn);
+                        conn.Open();
+                        int count = (int)command.ExecuteScalar();
+                        conn.Close();
+                        DPDataBaseDataSet2TableAdapters.LecturesTableAdapter lecturesTableAdapter = new DPDataBaseDataSet2TableAdapters.LecturesTableAdapter();
+                        lecturesTableAdapter.Insert(count, textBox1.Text, comboBoxT.Text);
+                            File.AppendAllText("./text/LC/" + textBox1.Text + ".rtf", @"{\rtf}");
+                        cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
+                        command = new OleDbCommand(cmdstr, conn);
+                        IList<string> lc = new List<string>();
+                        conn.Open();
+                        OleDbDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            lc.Add(reader[0].ToString());
+                        }
 
-                        File.AppendAllText("./text/LC/" + textBox1.Text + ".rtf", @"{\rtf}");
-                        listBox1.Items.Clear();
-                        listBox1.Items.AddRange(File.ReadAllLines(path));
+                        listBox1.DataSource = lc;
+                        listBox1.DisplayMember = "Lecture";
                         listBox1.SelectedItem = textBox1.Text;
                     }
+                    this.lecturesTableAdapter.Fill(this.dPDataBaseDataSet1.Lectures);
                     break;
                 case 3:
                     if (textBox1.Text == "") { MessageBox.Show("Введите название"); }
                     else
                     {
-                        string path = (@"./text/TM/" + comboBoxT.SelectedItem + ".txt");
-                        string TC = textBox1.Text + "\r\n";
-                        File.AppendAllText(path, TC);
+                        string cmdstr = "SELECT COUNT(*) FROM Lectures";
+                        OleDbCommand command = new OleDbCommand(cmdstr, conn);
+                        conn.Open();
+                        int count = (int)command.ExecuteScalar();
+                        conn.Close();
+                        DPDataBaseDataSet2TableAdapters.LecturesTableAdapter lecturesTableAdapter = new DPDataBaseDataSet2TableAdapters.LecturesTableAdapter();
+                        lecturesTableAdapter.Insert(count, textBox1.Text, comboBoxT.Text);
                         richTextBox1.SaveFile("./text/LC/" + textBox1.Text + ".rtf");
                         richTextBox1.Clear();
-                        listBox1.Items.Clear();
-                        listBox1.Items.AddRange(File.ReadAllLines(path));
+                        this.lecturesTableAdapter.Fill(this.dPDataBaseDataSet1.Lectures);
+                        cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
+                        command = new OleDbCommand(cmdstr, conn);
+                        IList<string> lc = new List<string>();
+                        conn.Open();
+                        OleDbDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            lc.Add(reader[0].ToString());
+                        }
+
+                        listBox1.DataSource = lc;
+                        listBox1.DisplayMember = "Lecture";
                         listBox1.SelectedItem = textBox1.Text;
+
                     }
+                   
                     break;
             }
             
@@ -423,30 +457,14 @@ namespace DiplomaProject
             panel2.Visible = false;
             if (listBox1.SelectedIndex == -1) { }
                 else { panel1.Visible = true; }
+
             
         }
 
         private void новуюToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Directory.Exists(@"./text/LC")) { }
-            else
+            if (comboBoxT.SelectedIndex != -1)
             {
-                Directory.CreateDirectory(@"./text/LC");
-            }
-            if (panel1.Visible == true)
-            {
-                panel1.Visible = false;
-            }
-            textBox1.Clear();
-            panel2.Visible = true;
-            swindex = 2;
-        }
-
-        private void изФайлаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog2.ShowDialog() == DialogResult.OK)
-            {
-                richTextBox1.LoadFile(openFileDialog2.FileName);
                 if (Directory.Exists(@"./text/LC")) { }
                 else
                 {
@@ -458,7 +476,38 @@ namespace DiplomaProject
                 }
                 textBox1.Clear();
                 panel2.Visible = true;
-                swindex = 3;
+                swindex = 2;
+            }
+            else
+            {
+                MessageBox.Show("Выберите или создайте тему");
+            }
+        }
+
+        private void изФайлаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (comboBoxT.SelectedIndex != -1)
+            {
+                if (openFileDialog2.ShowDialog() == DialogResult.OK)
+                {
+                    richTextBox1.LoadFile(openFileDialog2.FileName);
+                    if (Directory.Exists(@"./text/LC")) { }
+                    else
+                    {
+                        Directory.CreateDirectory(@"./text/LC");
+                    }
+                    if (panel1.Visible == true)
+                    {
+                        panel1.Visible = false;
+                    }
+                    textBox1.Clear();
+                    panel2.Visible = true;
+                    swindex = 3;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите или создайте тему");
             }
         }
 
@@ -470,6 +519,12 @@ namespace DiplomaProject
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            
+           
         }
     }
 }
