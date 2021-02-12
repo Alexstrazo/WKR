@@ -72,24 +72,28 @@ namespace DiplomaProject
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.dPDataBaseDataSet = new DiplomaProject.DPDataBaseDataSet();
-            this.topicsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.topicsTableAdapter = new DiplomaProject.DPDataBaseDataSetTableAdapters.TopicsTableAdapter();
-            this.dPDataBaseDataSet1 = new DiplomaProject.DPDataBaseDataSet2();
-            this.lecturesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lecturesTableAdapter = new DiplomaProject.DPDataBaseDataSet2TableAdapters.LecturesTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.тестToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dPDataBaseDataSet = new DiplomaProject.DPDataBaseDataSet();
+            this.topicsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.topicsTableAdapter = new DiplomaProject.DPDataBaseDataSetTableAdapters.TopicsTableAdapter();
+            this.dPDataBaseDataSet1 = new DiplomaProject.DPDataBaseDataSet1();
+            this.lecturesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lecturesTableAdapter = new DiplomaProject.DPDataBaseDataSet1TableAdapters.LecturesTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.topicsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lecturesBindingSource)).BeginInit();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -116,7 +120,8 @@ namespace DiplomaProject
             // 
             this.cToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.темуToolStripMenuItem,
-            this.лекциюToolStripMenuItem});
+            this.лекциюToolStripMenuItem,
+            this.тестToolStripMenuItem});
             this.cToolStripMenuItem.Name = "cToolStripMenuItem";
             resources.ApplyResources(this.cToolStripMenuItem, "cToolStripMenuItem");
             // 
@@ -410,6 +415,42 @@ namespace DiplomaProject
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
             // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // panel3
+            // 
+            this.panel3.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.comboBoxT);
+            this.panel3.Controls.Add(this.label2);
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Name = "panel3";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // panel4
+            // 
+            resources.ApplyResources(this.panel4, "panel4");
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Name = "panel4";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // тестToolStripMenuItem
+            // 
+            this.тестToolStripMenuItem.Name = "тестToolStripMenuItem";
+            resources.ApplyResources(this.тестToolStripMenuItem, "тестToolStripMenuItem");
+            this.тестToolStripMenuItem.Click += new System.EventHandler(this.тестToolStripMenuItem_Click);
+            // 
             // dPDataBaseDataSet
             // 
             this.dPDataBaseDataSet.DataSetName = "DPDataBaseDataSet";
@@ -438,30 +479,12 @@ namespace DiplomaProject
             // 
             this.lecturesTableAdapter.ClearBeforeFill = true;
             // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
-            // panel3
-            // 
-            this.panel3.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.comboBoxT);
-            this.panel3.Controls.Add(this.label2);
-            resources.ApplyResources(this.panel3, "panel3");
-            this.panel3.Name = "panel3";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
             // Form2
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -474,19 +497,20 @@ namespace DiplomaProject
             this.Name = "Form2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
-            this.Load += new System.EventHandler(this.Form2_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.topicsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lecturesBindingSource)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -534,14 +558,17 @@ namespace DiplomaProject
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem переименоватьToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
-        private DPDataBaseDataSet dPDataBaseDataSet;
-        private System.Windows.Forms.BindingSource topicsBindingSource;
-        private DPDataBaseDataSetTableAdapters.TopicsTableAdapter topicsTableAdapter;
-        private DPDataBaseDataSet2 dPDataBaseDataSet1;
-        private System.Windows.Forms.BindingSource lecturesBindingSource;
-        private DPDataBaseDataSet2TableAdapters.LecturesTableAdapter lecturesTableAdapter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripMenuItem тестToolStripMenuItem;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label4;
+        private DPDataBaseDataSet dPDataBaseDataSet;
+        private System.Windows.Forms.BindingSource topicsBindingSource;
+        private DPDataBaseDataSetTableAdapters.TopicsTableAdapter topicsTableAdapter;
+        private DPDataBaseDataSet1 dPDataBaseDataSet1;
+        private System.Windows.Forms.BindingSource lecturesBindingSource;
+        private DPDataBaseDataSet1TableAdapters.LecturesTableAdapter lecturesTableAdapter;
     }
 }

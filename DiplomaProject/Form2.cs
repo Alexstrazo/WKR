@@ -28,25 +28,26 @@ namespace DiplomaProject
         {
             InitializeComponent();
             this.topicsTableAdapter.Fill(this.dPDataBaseDataSet.Topics);
+            comboBoxT.SelectedIndex = -1;
             Form Form1 = new Form1();
             if (listBox1.SelectedIndex == -1)
             {
                panel1.Visible = false;
             }
             panel2.Visible = false;
+            panel4.Visible = false;
             openFileDialog1.Filter = "Картинки|*.jpeg;*.jpg;*.png;*.ico;*.bmp;*.emp;*..wmf;*.tiff";
             openFileDialog2.Filter = "Документы|*.rtf;";
 
             comboBoxFontSize.SelectedItem = "8";
-         
-            comboBoxT.SelectedIndex = -1;
+
+           
          
             if (Directory.Exists(@"./text/LC")) { }
             else
             {
                 Directory.CreateDirectory(@"./text/LC");
             }
-
                 comboBoxFont.DrawMode = DrawMode.OwnerDrawFixed;
             comboBoxFont.DrawItem += comboBoxFont_DrawItem;
             
@@ -54,11 +55,7 @@ namespace DiplomaProject
             {
                 comboBoxFont.Items.Add(fontFamily.Name);
             }
-            
             comboBoxFont.SelectedItem = "Arial";
-
-            
-
         }
 
         private void comboBoxFont_DrawItem(object sender, DrawItemEventArgs e)
@@ -69,8 +66,6 @@ namespace DiplomaProject
             string FontName = comboBoxFont.Items[e.Index].ToString();
             e.Graphics.DrawString(font.Name, font, Brushes.Black, e.Bounds.X, e.Bounds.Y);
         }
-          
-
 
         private void Form2_FormClosed(Object sender, FormClosedEventArgs e)
         {
@@ -200,21 +195,16 @@ namespace DiplomaProject
                 listBox1.DisplayMember = "Lecture";
                 panel1.Visible = false;
                 listBox1.SelectedIndex = -1;
-               
-
-
             }
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
             Int32 size = Convert.ToInt32(comboBoxFontSize.Text);
 
             richTextBox1.SelectionFont = new Font(font, size);
             sizeStyle = float.Parse(comboBoxFontSize.Text);
             fontstyle();
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -353,14 +343,10 @@ namespace DiplomaProject
             textBox1.Clear();
             panel2.Visible = true;
             swindex = 1;
-            
-
         }
 
         private void createitem(int swithindex)
         {
-
-            
             switch (swithindex)
             {
                 case 1:
@@ -382,21 +368,19 @@ namespace DiplomaProject
                         }
                        
                     }
-                    
                     break;
                 case 2:
-                    
-                    
                         if (textBox1.Text == "") { MessageBox.Show("Введите название"); }
                     else
                     {
                         string cmdstr = "SELECT COUNT(*) FROM Lectures";
+                        string type = "Lecture";
                         OleDbCommand command = new OleDbCommand(cmdstr, conn);
                         conn.Open();
                         int count = (int)command.ExecuteScalar();
                         conn.Close();
-                        DPDataBaseDataSet2TableAdapters.LecturesTableAdapter lecturesTableAdapter = new DPDataBaseDataSet2TableAdapters.LecturesTableAdapter();
-                        lecturesTableAdapter.Insert(count, textBox1.Text, comboBoxT.Text);
+                        DPDataBaseDataSet1TableAdapters.LecturesTableAdapter lecturesTableAdapter = new DPDataBaseDataSet1TableAdapters.LecturesTableAdapter();
+                        lecturesTableAdapter.Insert(count, textBox1.Text, comboBoxT.Text,type);
                             File.AppendAllText("./text/LC/" + textBox1.Text + ".rtf", @"{\rtf}");
                         cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
                         command = new OleDbCommand(cmdstr, conn);
@@ -407,7 +391,7 @@ namespace DiplomaProject
                         {
                             lc.Add(reader[0].ToString());
                         }
-
+                        conn.Close();
                         listBox1.DataSource = lc;
                         listBox1.DisplayMember = "Lecture";
                         listBox1.SelectedItem = textBox1.Text;
@@ -419,12 +403,13 @@ namespace DiplomaProject
                     else
                     {
                         string cmdstr = "SELECT COUNT(*) FROM Lectures";
+                        string type = "Lecture";
                         OleDbCommand command = new OleDbCommand(cmdstr, conn);
                         conn.Open();
                         int count = (int)command.ExecuteScalar();
                         conn.Close();
-                        DPDataBaseDataSet2TableAdapters.LecturesTableAdapter lecturesTableAdapter = new DPDataBaseDataSet2TableAdapters.LecturesTableAdapter();
-                        lecturesTableAdapter.Insert(count, textBox1.Text, comboBoxT.Text);
+                        DPDataBaseDataSet1TableAdapters.LecturesTableAdapter lecturesTableAdapter = new DPDataBaseDataSet1TableAdapters.LecturesTableAdapter();
+                        lecturesTableAdapter.Insert(count, textBox1.Text, comboBoxT.Text,type);
                         richTextBox1.SaveFile("./text/LC/" + textBox1.Text + ".rtf");
                         richTextBox1.Clear();
                         this.lecturesTableAdapter.Fill(this.dPDataBaseDataSet1.Lectures);
@@ -437,16 +422,13 @@ namespace DiplomaProject
                         {
                             lc.Add(reader[0].ToString());
                         }
-
+                        conn.Close();
                         listBox1.DataSource = lc;
                         listBox1.DisplayMember = "Lecture";
                         listBox1.SelectedItem = textBox1.Text;
-
                     }
-                   
                     break;
             }
-            
         
         }
 
@@ -458,7 +440,6 @@ namespace DiplomaProject
             if (listBox1.SelectedIndex == -1) { }
                 else { panel1.Visible = true; }
 
-            
         }
 
         private void новуюToolStripMenuItem_Click(object sender, EventArgs e)
@@ -521,10 +502,10 @@ namespace DiplomaProject
 
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void тестToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-           
+            panel4.Visible = true;
         }
+
     }
 }
