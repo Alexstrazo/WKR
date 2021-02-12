@@ -172,13 +172,13 @@
     <value>Cоздать...</value>
   </data>
   <data name="темуToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>129, 24</value>
   </data>
   <data name="темуToolStripMenuItem.Text" xml:space="preserve">
     <value>Тему</value>
   </data>
   <data name="лекциюToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>129, 24</value>
   </data>
   <data name="лекциюToolStripMenuItem.Text" xml:space="preserve">
     <value>Лекцию</value>
@@ -194,6 +194,12 @@
   </data>
   <data name="изФайлаToolStripMenuItem.Text" xml:space="preserve">
     <value>Из файла...</value>
+  </data>
+  <data name="тестToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 24</value>
+  </data>
+  <data name="тестToolStripMenuItem.Text" xml:space="preserve">
+    <value>Тест</value>
   </data>
   <data name="сохранитьToolStripMenuItem.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
@@ -234,6 +240,9 @@
   <metadata name="lecturesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>503, 54</value>
   </metadata>
+  <metadata name="dPDataBaseDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>337, 54</value>
+  </metadata>
   <data name="listBox1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Comic Sans MS, 14.25pt</value>
   </data>
@@ -273,6 +282,9 @@
   <data name="переименоватьToolStripMenuItem.Text" xml:space="preserve">
     <value>Переименовать</value>
   </data>
+  <metadata name="dPDataBaseDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>337, 54</value>
+  </metadata>
   <data name="richTextBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -336,6 +348,15 @@
   <data name="&gt;&gt;comboBoxT.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="topicsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 54</value>
+  </metadata>
+  <metadata name="dPDataBaseDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1094, 15</value>
+  </metadata>
+  <metadata name="dPDataBaseDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1094, 15</value>
+  </metadata>
   <metadata name="fontDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>407, 15</value>
   </metadata>
@@ -1226,6 +1247,234 @@
   <data name="panel4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
+  <data name="button17.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="button17.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="button17.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold, Italic</value>
+  </data>
+  <data name="button17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>567, 431</value>
+  </data>
+  <data name="button17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 40</value>
+  </data>
+  <data name="button17.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="button17.Text" xml:space="preserve">
+    <value>Сохранить вопрос</value>
+  </data>
+  <data name="&gt;&gt;button17.Name" xml:space="preserve">
+    <value>button17</value>
+  </data>
+  <data name="&gt;&gt;button17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button17.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;button17.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;panel5.Name" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="&gt;&gt;panel5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.Name" xml:space="preserve">
+    <value>checkedListBox1</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;button15.Name" xml:space="preserve">
+    <value>button15</value>
+  </data>
+  <data name="&gt;&gt;button15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button15.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;button15.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;button14.Name" xml:space="preserve">
+    <value>button14</value>
+  </data>
+  <data name="&gt;&gt;button14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button14.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;button14.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold, Italic</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>348, 72</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>592, 343</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Варианты ответов</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="textBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="textBox2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold, Italic</value>
+  </data>
+  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>441, 38</value>
+  </data>
+  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>484, 26</value>
+  </data>
+  <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>Textbox2</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
+    <value>textBox2</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 14.25pt, style=Bold, Italic</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 15</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 24</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Вопросы</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="testsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>836, 93</value>
+  </metadata>
+  <data name="listBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left</value>
+  </data>
+  <data name="listBox2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold, Italic</value>
+  </data>
+  <data name="listBox2.ItemHeight" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="listBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 42</value>
+  </data>
+  <data name="listBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>327, 624</value>
+  </data>
+  <data name="listBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;listBox2.Name" xml:space="preserve">
+    <value>listBox2</value>
+  </data>
+  <data name="&gt;&gt;listBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listBox2.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;listBox2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold, Italic</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>359, 40</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Вопрос:</value>
+  </data>
+  <data name="label4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
   </data>
@@ -1236,7 +1485,7 @@
     <value>panel4</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>5</value>
   </data>
   <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
     <value>390, 38</value>
@@ -1257,67 +1506,278 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
-  <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="panel5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;button16.Name" xml:space="preserve">
+    <value>button16</value>
   </data>
-  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold, Italic</value>
+  <data name="&gt;&gt;button16.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>505, 14</value>
+  <data name="&gt;&gt;button16.Parent" xml:space="preserve">
+    <value>panel5</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;button16.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Test</value>
+  <data name="&gt;&gt;textBox3.Name" xml:space="preserve">
+    <value>textBox3</value>
   </data>
-  <data name="label4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
+  <data name="&gt;&gt;textBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
+  <data name="&gt;&gt;textBox3.Parent" xml:space="preserve">
+    <value>panel5</value>
   </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;textBox3.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>panel4</value>
+  <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 111</value>
   </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+  <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>571, 100</value>
+  </data>
+  <data name="panel5.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;panel5.Name" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="&gt;&gt;panel5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="тестToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+  <data name="button16.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
   </data>
-  <data name="тестToolStripMenuItem.Text" xml:space="preserve">
-    <value>Тест</value>
+  <data name="button16.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
-  <metadata name="dPDataBaseDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1094, 15</value>
-  </metadata>
-  <metadata name="topicsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 54</value>
-  </metadata>
+  <data name="button16.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAACdAAAAnQGPcuduAAAClUlE
+        QVRYR7WXu04bQRiFV+QpEt4groiCIDRIFDS+PYCvPVT4EWxT0JIihdskVVy6S2wkS34ADMJNaAG7wpTI
+        wznj2dV6/Y9Z765/6ZPlufzn2HN33otsNks+gM/gDPwBN+AFKMPUlLUB26RyuRz7mCwRgp0Bk3wDP8A9
+        eAWuqA22YVv22QfrGcnn8674J3ABnoAkFIZHwBwfgZNOp42KJTKZjCu+C67ADEiJ14E5uuAL0PnFcCvB
+        MbgDUrI43IIjsGzCLQT85ZsQd+FEpcbicLAAbIMekDomCTWotSC+BThZpA6bgFrU9AwcgDizXQSTWiwH
+        XB1cotoAnXDNSg1jUSgUxHLDJQxu0UAKcOOQGkUCE0w1m001Go1Uo9HQ34V2/0GKBrh1htnhQsG/neKT
+        yUQx+Fmv16XhoOYJDXBvD1ZGIijuRrvdFtuDnzTAtSlV6oT8+wT3S9jEu92uKpVKthw3NMCTbKmSwtVq
+        VbVaLVWpVGzjqFklXiwWV/Wd0sBSBRNSdDAY6ET9fl//CilRDHGNaAAnoup0OibVPCQTccWJdQi4fIKJ
+        /SaSEAfP1klIAZuJcrks1q0pToY0YF2GTBQUms1majgcqvF4bErmEUGc6GW4ciOSTAQjori3Eb27Fa8y
+        EVGceFtxqMNIMhFDnHiHEeHNl0ek1NDDb6LX68URfwB7YH4foBN8hr6Q1Go1vRIiipMm3g3zC4nvVsRr
+        +D8gdViAwlymUl0I/gJ9TffC9xbg1dl6OCXANdDXc/wIo26ChQZenTdhguKHQOuI4VaCryCpGzIfJhza
+        HeBg7I2aJdjIkNTT7ByEe5r5gx0AH5ZcLpdg3cfpd8C+ib2S+Tw/Ab8A50jwec6n129wCri7hhB2nDcQ
+        whf0/HbJlwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="button16.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomRight</value>
+  </data>
+  <data name="button16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>504, 31</value>
+  </data>
+  <data name="button16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 40</value>
+  </data>
+  <data name="button16.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;button16.Name" xml:space="preserve">
+    <value>button16</value>
+  </data>
+  <data name="&gt;&gt;button16.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button16.Parent" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="&gt;&gt;button16.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="textBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 39</value>
+  </data>
+  <data name="textBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>462, 26</value>
+  </data>
+  <data name="textBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;textBox3.Name" xml:space="preserve">
+    <value>textBox3</value>
+  </data>
+  <data name="&gt;&gt;textBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox3.Parent" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="&gt;&gt;textBox3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="checkedListBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="checkedListBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 71</value>
+  </data>
+  <data name="checkedListBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>571, 252</value>
+  </data>
+  <data name="checkedListBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.Name" xml:space="preserve">
+    <value>checkedListBox1</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;checkedListBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="button15.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="button15.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="button15.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAACdAAAAnQGPcuduAAADAElE
+        QVRYR62Xya4SQRSGyfUp1DeQlUbjsDFx4YZ5WBJ4gCuQ+A66cHtd+ACIBKJv4PQKjDIpsFKXXhcMxvL/
+        i662u6lquoGTfLm53afO/9NdVX0qsi8SiQS5Am6Ap+At6IHfQFhcWtfeAeZEk8kkx1hVDggOBixyH7wC
+        38AfoERNMIe5HHMPhDOSSqWU+DXwAvwEOqEg/ACscRVEYrGYpWKIeDyuxO+Az+Av0BUOA2t8BLeArK8N
+        dRM8Bl+Artgx9MEjsGtCXQT85TvieDKu/4NgGMOJSg336+AFcB18AvYAFslkMqJQKIQywdxisShyuZxu
+        HDWo5RI/A5wsdiIHptNpUavVRK/XE9VqVcC1s5AW5jB3MBiIRqMhstmszgS1qGkbeABcs52/nOLL5VIw
+        JpOJqFQqviaU+HQ6lWPW67VtwpPL1cElKg3QCdesnUDHfOzdblcWUuFnwiuuot1um17hBa6d0UAUcONw
+        JXAAC1LUGToTJvHhcCjK5bJOnHwFURrg1qnd4VRhPxMm8dFoJMWdRj1Q85wGuLfrEiQmAWWCeA0GEFe8
+        pgGuTd1NG5OJ+XwuccZ4PDbOEw09GuCXTHfThcmEM0KKk0sa0N3QwsIUWCwWluT/4JMI+NhdnNRAyF8v
+        Oekr0C3RPfw6ahLOZjOJM0Ka6NLAQcuQE47vnGLeZRjChFyGezcinbgSIAeasDci363YT1zl+plgjX1b
+        sfZjxO95v9+3Sm3Db4czmeBnuVQq6UzYHyPCzpefSDuBzUS9Xher1UoWCrK9ek1sNhvRarVEPp/3GvgO
+        7oJtP0An+LvTkLAnoIlOpxN4k2EOHzt/ebPZNHVFz3Bu2DYkjq6IbfgHYCdyIJuJE7dk74Fs0+1wnAXY
+        Ou/sC2HEFYYxHSDbczwpS90KXrRg67x3czoAij8EUkcb6ia4DVwd8hHwYMJXexNE8O4tNUMwyeJUR7Pn
+        INjRzBkcAHiw5HK5AGEPpy8Bx57slMzj+TmoA84R7/GcR6834Ang7hpAOBL5B1N8lbiozywkAAAAAElF
+        TkSuQmCC
+</value>
+  </data>
+  <data name="button15.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomRight</value>
+  </data>
+  <data name="button15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>61, 25</value>
+  </data>
+  <data name="button15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 40</value>
+  </data>
+  <data name="button15.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;button15.Name" xml:space="preserve">
+    <value>button15</value>
+  </data>
+  <data name="&gt;&gt;button15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button15.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;button15.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="button14.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="button14.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="button14.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAACdAAAAnQGPcuduAAACWklE
+        QVRYR82XvW4TQRDHT8lTQN4AVyAQgQaJIo2/JLuy3LkNFe9AirSh4AWSVPAGgHkGOyhVaIPlKnGJsvx/
+        m73TfczF53DistJPXu3Nzsx5d+ZmonWj2+3Ctngi3ovP4kyshAtch7UvAplWr9djT9Byj8FmgZJX4pP4
+        Jf6I2GgZyCDLnl2xmSP9fj82/lgcioWwDFXht0DHIxG12+1gpWR0Op3Y+AvxQ9wIS/EmoOO7eCa8fnPE
+        D8WeOBeWsgQ5m8GSyfFTvBVFJ+JFwZuvNQ7j8dhNJhMPc0vGgIuKjexxsCB2xFRYGzMMBgM3nU7dcrn0
+        MGfNkjXABrYyxrcEl8XaUGA4HLrZbObiwZw1S7YEbGEzceC1qHzba3CA6CBEvQN4QsxagiY1OABHurxb
+        ONASJA5LyKQmBy5ECwdInVUyXEJNDmBzHwfI7ZaACTFf5kDFfJDmGAeIzcJDwgqlFqPRyM3n82De+Tlr
+        lizcEaJnOMCXLFnkLUgsxDaKebs8rK9Wq2De+fldsuhCp/EPXeNAZhEhsttisQjq/32gC53WET0IB5o8
+        gqumL+EcBxoPw8YTUeOpuPGPEVD58om0BAvU4MCleClu6wE80e//LEg+qG+4LUhSVRFl+DdhbchAWBHb
+        9yzJvgpfpicj1QtQOpt5IQ+JhewGzC0Zg5nw5XmhR2AxQOm81gliPo0lkwPjb4S3Y474oXguKlXIFaAx
+        4WifikhnH6yVDIQCdbVmB6Jaa5YebBA0loTLkdi0Of0o2Ftbl0x7vi9OBHck357Tep2Kd4LsWsFwFP0F
+        2NJzd/6jVWcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="button14.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomRight</value>
+  </data>
+  <data name="button14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 25</value>
+  </data>
+  <data name="button14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 40</value>
+  </data>
+  <data name="button14.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;button14.Name" xml:space="preserve">
+    <value>button14</value>
+  </data>
+  <data name="&gt;&gt;button14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button14.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;button14.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <metadata name="topicsTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>180, 54</value>
-  </metadata>
-  <metadata name="dPDataBaseDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>337, 54</value>
   </metadata>
   <metadata name="lecturesTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>676, 54</value>
   </metadata>
+  <metadata name="dPDataBaseDataSet3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>167, 93</value>
+  </metadata>
+  <metadata name="qustionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>333, 93</value>
+  </metadata>
+  <metadata name="qustionTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>504, 93</value>
+  </metadata>
+  <metadata name="dPDataBaseDataSet2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>670, 93</value>
+  </metadata>
+  <metadata name="testsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>836, 93</value>
+  </metadata>
+  <metadata name="testsTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>992, 93</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>159</value>
   </metadata>
   <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1373,6 +1833,12 @@
   <data name="&gt;&gt;изФайлаToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;тестToolStripMenuItem.Name" xml:space="preserve">
+    <value>тестToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;тестToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;сохранитьToolStripMenuItem.Name" xml:space="preserve">
     <value>сохранитьToolStripMenuItem</value>
   </data>
@@ -1403,11 +1869,35 @@
   <data name="&gt;&gt;переименоватьToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;lecturesBindingSource.Name" xml:space="preserve">
+    <value>lecturesBindingSource</value>
+  </data>
+  <data name="&gt;&gt;lecturesBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dPDataBaseDataSet1.Name" xml:space="preserve">
+    <value>dPDataBaseDataSet1</value>
+  </data>
+  <data name="&gt;&gt;dPDataBaseDataSet1.Type" xml:space="preserve">
+    <value>DiplomaProject.DPDataBaseDataSet1, DPDataBaseDataSet1.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
   <data name="&gt;&gt;openFileDialog1.Name" xml:space="preserve">
     <value>openFileDialog1</value>
   </data>
   <data name="&gt;&gt;openFileDialog1.Type" xml:space="preserve">
     <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;topicsBindingSource.Name" xml:space="preserve">
+    <value>topicsBindingSource</value>
+  </data>
+  <data name="&gt;&gt;topicsBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dPDataBaseDataSet.Name" xml:space="preserve">
+    <value>dPDataBaseDataSet</value>
+  </data>
+  <data name="&gt;&gt;dPDataBaseDataSet.Type" xml:space="preserve">
+    <value>DiplomaProject.DPDataBaseDataSet, DPDataBaseDataSet.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;fontDialog1.Name" xml:space="preserve">
     <value>fontDialog1</value>
@@ -1427,47 +1917,53 @@
   <data name="&gt;&gt;openFileDialog2.Type" xml:space="preserve">
     <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;тестToolStripMenuItem.Name" xml:space="preserve">
-    <value>тестToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;тестToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dPDataBaseDataSet.Name" xml:space="preserve">
-    <value>dPDataBaseDataSet</value>
-  </data>
-  <data name="&gt;&gt;dPDataBaseDataSet.Type" xml:space="preserve">
-    <value>DiplomaProject.DPDataBaseDataSet, DPDataBaseDataSet.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;topicsBindingSource.Name" xml:space="preserve">
-    <value>topicsBindingSource</value>
-  </data>
-  <data name="&gt;&gt;topicsBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;topicsTableAdapter.Name" xml:space="preserve">
     <value>topicsTableAdapter</value>
   </data>
   <data name="&gt;&gt;topicsTableAdapter.Type" xml:space="preserve">
     <value>DiplomaProject.DPDataBaseDataSetTableAdapters.TopicsTableAdapter, DPDataBaseDataSet.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;dPDataBaseDataSet1.Name" xml:space="preserve">
-    <value>dPDataBaseDataSet1</value>
-  </data>
-  <data name="&gt;&gt;dPDataBaseDataSet1.Type" xml:space="preserve">
-    <value>DiplomaProject.DPDataBaseDataSet1, DPDataBaseDataSet1.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;lecturesBindingSource.Name" xml:space="preserve">
-    <value>lecturesBindingSource</value>
-  </data>
-  <data name="&gt;&gt;lecturesBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;lecturesTableAdapter.Name" xml:space="preserve">
     <value>lecturesTableAdapter</value>
   </data>
   <data name="&gt;&gt;lecturesTableAdapter.Type" xml:space="preserve">
     <value>DiplomaProject.DPDataBaseDataSet1TableAdapters.LecturesTableAdapter, DPDataBaseDataSet1.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;dPDataBaseDataSet3.Name" xml:space="preserve">
+    <value>dPDataBaseDataSet3</value>
+  </data>
+  <data name="&gt;&gt;dPDataBaseDataSet3.Type" xml:space="preserve">
+    <value>DiplomaProject.DPDataBaseDataSet3, DPDataBaseDataSet3.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;qustionBindingSource.Name" xml:space="preserve">
+    <value>qustionBindingSource</value>
+  </data>
+  <data name="&gt;&gt;qustionBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;qustionTableAdapter.Name" xml:space="preserve">
+    <value>qustionTableAdapter</value>
+  </data>
+  <data name="&gt;&gt;qustionTableAdapter.Type" xml:space="preserve">
+    <value>DiplomaProject.DPDataBaseDataSet3TableAdapters.QustionTableAdapter, DPDataBaseDataSet3.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;dPDataBaseDataSet2.Name" xml:space="preserve">
+    <value>dPDataBaseDataSet2</value>
+  </data>
+  <data name="&gt;&gt;dPDataBaseDataSet2.Type" xml:space="preserve">
+    <value>DiplomaProject.DPDataBaseDataSet2, DPDataBaseDataSet2.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;testsBindingSource.Name" xml:space="preserve">
+    <value>testsBindingSource</value>
+  </data>
+  <data name="&gt;&gt;testsBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;testsTableAdapter.Name" xml:space="preserve">
+    <value>testsTableAdapter</value>
+  </data>
+  <data name="&gt;&gt;testsTableAdapter.Type" xml:space="preserve">
+    <value>DiplomaProject.DPDataBaseDataSet2TableAdapters.TestsTableAdapter, DPDataBaseDataSet2.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form2</value>

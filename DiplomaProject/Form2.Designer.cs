@@ -39,6 +39,7 @@ namespace DiplomaProject
             this.лекциюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.новуюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изФайлаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.тестToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вставитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изображениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,9 +47,13 @@ namespace DiplomaProject
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.переименоватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lecturesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dPDataBaseDataSet1 = new DiplomaProject.DPDataBaseDataSet1();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.comboBoxT = new System.Windows.Forms.ComboBox();
+            this.topicsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dPDataBaseDataSet = new DiplomaProject.DPDataBaseDataSet();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.comboBoxFont = new System.Windows.Forms.ComboBox();
             this.comboBoxFontSize = new System.Windows.Forms.ComboBox();
@@ -76,24 +81,42 @@ namespace DiplomaProject
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button17 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button16 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.тестToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dPDataBaseDataSet = new DiplomaProject.DPDataBaseDataSet();
-            this.topicsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.topicsTableAdapter = new DiplomaProject.DPDataBaseDataSetTableAdapters.TopicsTableAdapter();
-            this.dPDataBaseDataSet1 = new DiplomaProject.DPDataBaseDataSet1();
-            this.lecturesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lecturesTableAdapter = new DiplomaProject.DPDataBaseDataSet1TableAdapters.LecturesTableAdapter();
+            this.dPDataBaseDataSet3 = new DiplomaProject.DPDataBaseDataSet3();
+            this.qustionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qustionTableAdapter = new DiplomaProject.DPDataBaseDataSet3TableAdapters.QustionTableAdapter();
+            this.dPDataBaseDataSet2 = new DiplomaProject.DPDataBaseDataSet2();
+            this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.testsTableAdapter = new DiplomaProject.DPDataBaseDataSet2TableAdapters.TestsTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lecturesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.topicsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.topicsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lecturesBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qustionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -151,6 +174,12 @@ namespace DiplomaProject
             resources.ApplyResources(this.изФайлаToolStripMenuItem, "изФайлаToolStripMenuItem");
             this.изФайлаToolStripMenuItem.Click += new System.EventHandler(this.изФайлаToolStripMenuItem_Click);
             // 
+            // тестToolStripMenuItem
+            // 
+            this.тестToolStripMenuItem.Name = "тестToolStripMenuItem";
+            resources.ApplyResources(this.тестToolStripMenuItem, "тестToolStripMenuItem");
+            this.тестToolStripMenuItem.Click += new System.EventHandler(this.тестToolStripMenuItem_Click);
+            // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
@@ -200,6 +229,16 @@ namespace DiplomaProject
             this.переименоватьToolStripMenuItem.Name = "переименоватьToolStripMenuItem";
             resources.ApplyResources(this.переименоватьToolStripMenuItem, "переименоватьToolStripMenuItem");
             // 
+            // lecturesBindingSource
+            // 
+            this.lecturesBindingSource.DataMember = "Lectures";
+            this.lecturesBindingSource.DataSource = this.dPDataBaseDataSet1;
+            // 
+            // dPDataBaseDataSet1
+            // 
+            this.dPDataBaseDataSet1.DataSetName = "DPDataBaseDataSet1";
+            this.dPDataBaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // richTextBox1
             // 
             resources.ApplyResources(this.richTextBox1, "richTextBox1");
@@ -222,6 +261,16 @@ namespace DiplomaProject
             this.comboBoxT.FormattingEnabled = true;
             this.comboBoxT.Name = "comboBoxT";
             this.comboBoxT.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // topicsBindingSource
+            // 
+            this.topicsBindingSource.DataMember = "Topics";
+            this.topicsBindingSource.DataSource = this.dPDataBaseDataSet;
+            // 
+            // dPDataBaseDataSet
+            // 
+            this.dPDataBaseDataSet.DataSetName = "DPDataBaseDataSet";
+            this.dPDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // fontDialog1
             // 
@@ -437,47 +486,135 @@ namespace DiplomaProject
             // panel4
             // 
             resources.ApplyResources(this.panel4, "panel4");
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.button17);
+            this.panel4.Controls.Add(this.groupBox1);
+            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.listBox2);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Name = "panel4";
+            // 
+            // button17
+            // 
+            resources.ApplyResources(this.button17, "button17");
+            this.button17.Name = "button17";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // groupBox1
+            // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.panel5);
+            this.groupBox1.Controls.Add(this.checkedListBox1);
+            this.groupBox1.Controls.Add(this.button15);
+            this.groupBox1.Controls.Add(this.button14);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // panel5
+            // 
+            resources.ApplyResources(this.panel5, "panel5");
+            this.panel5.Controls.Add(this.button16);
+            this.panel5.Controls.Add(this.textBox3);
+            this.panel5.Name = "panel5";
+            // 
+            // button16
+            // 
+            resources.ApplyResources(this.button16, "button16");
+            this.button16.FlatAppearance.BorderSize = 0;
+            this.button16.Name = "button16";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.textBox3, "textBox3");
+            this.textBox3.Name = "textBox3";
+            // 
+            // checkedListBox1
+            // 
+            resources.ApplyResources(this.checkedListBox1, "checkedListBox1");
+            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Name = "checkedListBox1";
+            // 
+            // button15
+            // 
+            resources.ApplyResources(this.button15, "button15");
+            this.button15.FlatAppearance.BorderSize = 0;
+            this.button15.Name = "button15";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // button14
+            // 
+            resources.ApplyResources(this.button14, "button14");
+            this.button14.FlatAppearance.BorderSize = 0;
+            this.button14.Name = "button14";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // textBox2
+            // 
+            resources.ApplyResources(this.textBox2, "textBox2");
+            this.textBox2.Name = "textBox2";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // listBox2
+            // 
+            resources.ApplyResources(this.listBox2, "listBox2");
+            this.listBox2.DataSource = this.testsBindingSource;
+            this.listBox2.DisplayMember = "question";
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Name = "listBox2";
+            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
-            // тестToolStripMenuItem
-            // 
-            this.тестToolStripMenuItem.Name = "тестToolStripMenuItem";
-            resources.ApplyResources(this.тестToolStripMenuItem, "тестToolStripMenuItem");
-            this.тестToolStripMenuItem.Click += new System.EventHandler(this.тестToolStripMenuItem_Click);
-            // 
-            // dPDataBaseDataSet
-            // 
-            this.dPDataBaseDataSet.DataSetName = "DPDataBaseDataSet";
-            this.dPDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // topicsBindingSource
-            // 
-            this.topicsBindingSource.DataMember = "Topics";
-            this.topicsBindingSource.DataSource = this.dPDataBaseDataSet;
-            // 
             // topicsTableAdapter
             // 
             this.topicsTableAdapter.ClearBeforeFill = true;
             // 
-            // dPDataBaseDataSet1
-            // 
-            this.dPDataBaseDataSet1.DataSetName = "DPDataBaseDataSet1";
-            this.dPDataBaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // lecturesBindingSource
-            // 
-            this.lecturesBindingSource.DataMember = "Lectures";
-            this.lecturesBindingSource.DataSource = this.dPDataBaseDataSet1;
-            // 
             // lecturesTableAdapter
             // 
             this.lecturesTableAdapter.ClearBeforeFill = true;
+            // 
+            // dPDataBaseDataSet3
+            // 
+            this.dPDataBaseDataSet3.DataSetName = "DPDataBaseDataSet3";
+            this.dPDataBaseDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // qustionBindingSource
+            // 
+            this.qustionBindingSource.DataMember = "Qustion";
+            this.qustionBindingSource.DataSource = this.dPDataBaseDataSet3;
+            // 
+            // qustionTableAdapter
+            // 
+            this.qustionTableAdapter.ClearBeforeFill = true;
+            // 
+            // dPDataBaseDataSet2
+            // 
+            this.dPDataBaseDataSet2.DataSetName = "DPDataBaseDataSet2";
+            this.dPDataBaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // testsBindingSource
+            // 
+            this.testsBindingSource.DataMember = "Tests";
+            this.testsBindingSource.DataSource = this.dPDataBaseDataSet2;
+            // 
+            // testsTableAdapter
+            // 
+            this.testsTableAdapter.ClearBeforeFill = true;
             // 
             // Form2
             // 
@@ -497,9 +634,14 @@ namespace DiplomaProject
             this.Name = "Form2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lecturesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.topicsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -507,10 +649,13 @@ namespace DiplomaProject
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.topicsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lecturesBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qustionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dPDataBaseDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -570,5 +715,22 @@ namespace DiplomaProject
         private DPDataBaseDataSet1 dPDataBaseDataSet1;
         private System.Windows.Forms.BindingSource lecturesBindingSource;
         private DPDataBaseDataSet1TableAdapters.LecturesTableAdapter lecturesTableAdapter;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button17;
+        private DPDataBaseDataSet3 dPDataBaseDataSet3;
+        private System.Windows.Forms.BindingSource qustionBindingSource;
+        private DPDataBaseDataSet3TableAdapters.QustionTableAdapter qustionTableAdapter;
+        private DPDataBaseDataSet2 dPDataBaseDataSet2;
+        private System.Windows.Forms.BindingSource testsBindingSource;
+        private DPDataBaseDataSet2TableAdapters.TestsTableAdapter testsTableAdapter;
     }
 }
