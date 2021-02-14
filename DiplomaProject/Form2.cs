@@ -21,6 +21,7 @@ namespace DiplomaProject
         string font;
         float sizeStyle;
         int swindex = 0;
+        int questionsave=0;
         OleDbConnection conn = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = DPDataBase.accdb");
 
 
@@ -33,22 +34,19 @@ namespace DiplomaProject
             if (listBox1.SelectedIndex == -1)
             {
                panel1.Visible = false;
+
+                
             }
             panel2.Visible = false;
             panel4.Visible = false;
             panel5.Visible = false;
+            сохранитьToolStripMenuItem.Visible = false;
+            вставитьToolStripMenuItem.Visible = false;
             openFileDialog1.Filter = "Картинки|*.jpeg;*.jpg;*.png;*.ico;*.bmp;*.emp;*..wmf;*.tiff";
             openFileDialog2.Filter = "Документы|*.rtf;";
 
             comboBoxFontSize.SelectedItem = "8";
-
            
-         
-            if (Directory.Exists(@"./text/LC")) { }
-            else
-            {
-                Directory.CreateDirectory(@"./text/LC");
-            }
                 comboBoxFont.DrawMode = DrawMode.OwnerDrawFixed;
             comboBoxFont.DrawItem += comboBoxFont_DrawItem;
             
@@ -77,52 +75,43 @@ namespace DiplomaProject
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            
+           
             if (listBox1.SelectedIndex == -1)
-            {  }
+            {
+                panel1.Visible = false;
+                panel4.Visible = false;
+            }
             else
             {
                 string cmdstr = "SELECT Type FROM Lectures WHERE Lecture = '" + listBox1.SelectedItem.ToString() + "'";
                 OleDbCommand command = new OleDbCommand(cmdstr, conn);
-
                 conn.Open();
                 string listtype = command.ExecuteScalar().ToString();
                 conn.Close();
                 if (listtype == "Lecture")
                 {
                     panel1.Visible = true;
+                    сохранитьToolStripMenuItem.Visible = true;
+                    вставитьToolStripMenuItem.Visible = true;
+                    panel4.Visible = false;
                     string n = listBox1.SelectedItem.ToString();
-                    if (File.Exists(@"./text/LC/" + n + ".rtf"))
+                    if (File.Exists("./text/" + comboBoxT.Text + "/" + listBox1.SelectedItem + ".rtf"))
                     {
-                        richTextBox1.LoadFile(@"./text/LC/" + n + ".rtf");
+                        richTextBox1.LoadFile("./text/" + comboBoxT.Text + "/" + listBox1.SelectedItem + ".rtf");
 
                     }
                     else
                     {
                         richTextBox1.Clear();
                         panel1.Visible = false;
+                        сохранитьToolStripMenuItem.Visible = false;
+                        вставитьToolStripMenuItem.Visible = false;
                         MessageBox.Show("Файл отсутствует", "Ошибка");
                     }
                 }
                 else
                 {
-                    cmdstr = "SELECT question FROM Tests";
-                    OleDbCommand commandtest = new OleDbCommand(cmdstr, conn);
-                    IList<string> lc = new List<string>();
-                    conn.Open();
-                    OleDbDataReader reader = commandtest.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        lc.Add(reader[0].ToString());
-                    }
-                    conn.Close();
-                    listBox2.DataSource = null;
-                    listBox2.DataSource = lc;
-                    listBox2.DisplayMember = "question";
-                    listBox2.SelectedIndex = -1;
-                    panel1.Visible = false;
-                    panel4.Visible = true;
+                    testload();
                 }
             }
         }
@@ -189,7 +178,7 @@ namespace DiplomaProject
                 else
                 {
                     string n = listBox1.SelectedItem.ToString();
-                    richTextBox1.SaveFile("./text/LC/" + n + ".rtf");
+                    richTextBox1.SaveFile("./text/" + comboBoxT.Text + "/" + n + ".rtf");
                 }
             }
         }
@@ -214,22 +203,29 @@ namespace DiplomaProject
         {
             if (comboBoxT.SelectedIndex != -1)
             {
-                label3.Text = comboBoxT.Text;
-                string cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
-                OleDbCommand command = new OleDbCommand(cmdstr, conn);
-                IList<string> lc = new List<string>();
-                conn.Open();
-                OleDbDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    lc.Add(reader[0].ToString());
-                }
-                conn.Close();
-                listBox1.DataSource = lc;
-                listBox1.DisplayMember = "Lecture";
-                panel1.Visible = false;
-                listBox1.SelectedIndex = -1;
+                loadlecture();
             }
+        }
+
+        private void loadlecture()
+        {
+            label3.Text = comboBoxT.Text;
+            string cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
+            OleDbCommand command = new OleDbCommand(cmdstr, conn);
+            IList<string> lc = new List<string>();
+            conn.Open();
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                lc.Add(reader[0].ToString());
+            }
+            conn.Close();
+            listBox1.DataSource = lc;
+            listBox1.DisplayMember = "Lecture";
+            panel1.Visible = false;
+            сохранитьToolStripMenuItem.Visible = false;
+            вставитьToolStripMenuItem.Visible = false;
+            listBox1.SelectedIndex = -1;
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -373,6 +369,8 @@ namespace DiplomaProject
             if (panel1.Visible == true)
             {
                 panel1.Visible = false;
+                сохранитьToolStripMenuItem.Visible = false;
+                вставитьToolStripMenuItem.Visible = false;
             }
             textBox1.Clear();
             panel2.Visible = true;
@@ -394,10 +392,14 @@ namespace DiplomaProject
                             int count = (int)command.ExecuteScalar();
                             conn.Close();
                             DPDataBaseDataSetTableAdapters.TopicsTableAdapter topicsTableAdapter = new DPDataBaseDataSetTableAdapters.TopicsTableAdapter();
-                            topicsTableAdapter.Insert(count,textBox1.Text);
+                            topicsTableAdapter.Insert(textBox1.Text);
                             this.topicsTableAdapter.Fill(this.dPDataBaseDataSet.Topics);
-                            string Ttext = textBox1.Text;
                             comboBoxT.SelectedIndex = count;
+                            if (Directory.Exists("./text/" + textBox1.Text)) { }
+                            else
+                            {
+                                Directory.CreateDirectory("./text/" + textBox1.Text);
+                            }
 
                         }
                        
@@ -407,6 +409,7 @@ namespace DiplomaProject
                         if (textBox1.Text == "") { MessageBox.Show("Введите название","Создание лекции"); }
                     else
                     {
+                       
                         string cmdstr = "SELECT COUNT(*) FROM Lectures";
                         string type = "Lecture";
                         OleDbCommand command = new OleDbCommand(cmdstr, conn);
@@ -414,8 +417,8 @@ namespace DiplomaProject
                         int count = (int)command.ExecuteScalar();
                         conn.Close();
                         DPDataBaseDataSet1TableAdapters.LecturesTableAdapter lecturesTableAdapter = new DPDataBaseDataSet1TableAdapters.LecturesTableAdapter();
-                        lecturesTableAdapter.Insert(count, textBox1.Text, comboBoxT.Text,type);
-                            File.AppendAllText("./text/LC/" + textBox1.Text + ".rtf", @"{\rtf}");
+                        lecturesTableAdapter.Insert(textBox1.Text, comboBoxT.Text,type);
+                            File.AppendAllText("./text/"+comboBoxT.Text+"/" + textBox1.Text + ".rtf", @"{\rtf}");
                         cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
                         command = new OleDbCommand(cmdstr, conn);
                         IList<string> lc = new List<string>();
@@ -443,8 +446,8 @@ namespace DiplomaProject
                         int count = (int)command.ExecuteScalar();
                         conn.Close();
                         DPDataBaseDataSet1TableAdapters.LecturesTableAdapter lecturesTableAdapter = new DPDataBaseDataSet1TableAdapters.LecturesTableAdapter();
-                        lecturesTableAdapter.Insert(count, textBox1.Text, comboBoxT.Text,type);
-                        richTextBox1.SaveFile("./text/LC/" + textBox1.Text + ".rtf");
+                        lecturesTableAdapter.Insert(textBox1.Text, comboBoxT.Text,type);
+                        richTextBox1.SaveFile("./text/" + comboBoxT.Text + "/" + textBox1.Text + ".rtf");
                         richTextBox1.Clear();
                         this.lecturesTableAdapter.Fill(this.dPDataBaseDataSet1.Lectures);
                         cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
@@ -473,7 +476,7 @@ namespace DiplomaProject
                         int count = (int)command.ExecuteScalar();
                         conn.Close();
                         DPDataBaseDataSet1TableAdapters.LecturesTableAdapter lecturesTableAdapter = new DPDataBaseDataSet1TableAdapters.LecturesTableAdapter();
-                        lecturesTableAdapter.Insert(count, textBox1.Text, comboBoxT.Text, type);
+                        lecturesTableAdapter.Insert(textBox1.Text, comboBoxT.Text, type);
                         cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
                         command = new OleDbCommand(cmdstr, conn);
                         IList<string> lc = new List<string>();
@@ -486,9 +489,10 @@ namespace DiplomaProject
                         conn.Close();
                         listBox1.DataSource = lc;
                         listBox1.DisplayMember = "Lecture";
-                        listBox1.SelectedItem = textBox1.Text;
+                        
                     }
                     this.lecturesTableAdapter.Fill(this.dPDataBaseDataSet1.Lectures);
+                    listBox1.SelectedItem = textBox1.Text;
                     break;
             }
         
@@ -500,7 +504,12 @@ namespace DiplomaProject
             createitem(swindex);
             panel2.Visible = false;
             if (listBox1.SelectedIndex == -1) { }
-                else { panel1.Visible = true; }
+                else
+            {
+                panel1.Visible = true;
+                сохранитьToolStripMenuItem.Visible = true;
+                вставитьToolStripMenuItem.Visible = true;
+            }
 
         }
 
@@ -508,14 +517,11 @@ namespace DiplomaProject
         {
             if (comboBoxT.SelectedIndex != -1)
             {
-                if (Directory.Exists(@"./text/LC")) { }
-                else
-                {
-                    Directory.CreateDirectory(@"./text/LC");
-                }
                 if (panel1.Visible == true)
                 {
                     panel1.Visible = false;
+                    сохранитьToolStripMenuItem.Visible = false;
+                    вставитьToolStripMenuItem.Visible = false;
                 }
                 textBox1.Clear();
                 panel2.Visible = true;
@@ -534,14 +540,11 @@ namespace DiplomaProject
                 if (openFileDialog2.ShowDialog() == DialogResult.OK)
                 {
                     richTextBox1.LoadFile(openFileDialog2.FileName);
-                    if (Directory.Exists(@"./text/LC")) { }
-                    else
-                    {
-                        Directory.CreateDirectory(@"./text/LC");
-                    }
                     if (panel1.Visible == true)
                     {
                         panel1.Visible = false;
+                        сохранитьToolStripMenuItem.Visible = false;
+                        вставитьToolStripMenuItem.Visible = false;
                     }
                     textBox1.Clear();
                     panel2.Visible = true;
@@ -557,11 +560,54 @@ namespace DiplomaProject
         private void button13_Click(object sender, EventArgs e)
         {
             panel2.Visible = false;
+            int select = listBox1.SelectedIndex;
+            listBox1.SelectedIndex = -1;
+            listBox1.SelectedIndex = select;
         }
 
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            string cmdstr = "SELECT Type FROM Lectures WHERE Lecture = '" + listBox1.SelectedItem + "'";
+            OleDbCommand command = new OleDbCommand(cmdstr, conn);
+            conn.Open();
+            string type = (string)command.ExecuteScalar();
+            conn.Close();
+            if (listBox1.SelectedIndex != -1)
+            {
+                if (type == "Lecture")
+                {
+                    File.Delete("./text/" + comboBoxT.Text + "/" + listBox1.SelectedItem + ".rtf");
+                    cmdstr = "DELETE Lecture FROM Lectures WHERE Lecture ='" + listBox1.SelectedItem + "'";
+                    OleDbCommand lecturesdelete = new OleDbCommand(cmdstr, conn);
+                    conn.Open();
+                    lecturesdelete.ExecuteNonQuery();
+                    conn.Close();
+                }
+                if (type == "Test")
+                {
+                    cmdstr = "DELETE question FROM Tests WHERE Test ='" + listBox1.SelectedItem + "'";
+                    OleDbCommand testsdelete = new OleDbCommand(cmdstr, conn);
+                    conn.Open();
+                    testsdelete.ExecuteNonQuery();
+                    conn.Close();
+                    cmdstr = "DELETE question FROM Qustion WHERE Test ='" + listBox1.SelectedItem + "'";
+                    OleDbCommand deletequstion = new OleDbCommand(cmdstr, conn);
+                    conn.Open();
+                    deletequstion.ExecuteNonQuery();
+                    conn.Close();
+                    cmdstr = "DELETE Lecture FROM Lectures WHERE Lecture ='" + listBox1.SelectedItem + "'";
+                    OleDbCommand Testdelete = new OleDbCommand(cmdstr, conn);
+                    conn.Open();
+                    Testdelete.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите лекцию или тест для удаления", "Ошибка удаления");
+            }
+            loadlecture();
+            listBox1.SelectedIndex = -1;
         }
 
         private void тестToolStripMenuItem_Click(object sender, EventArgs e)
@@ -571,6 +617,12 @@ namespace DiplomaProject
                 if (panel1.Visible == true)
                 {
                     panel1.Visible = false;
+                    сохранитьToolStripMenuItem.Visible = false;
+                    вставитьToolStripMenuItem.Visible = false;
+                }
+                if (panel4.Visible == true)
+                {
+                    panel4.Visible = false;
                 }
                 textBox1.Clear();
                 panel2.Visible = true;
@@ -586,6 +638,9 @@ namespace DiplomaProject
         private void button16_Click(object sender, EventArgs e)
         {
             checkedListBox1.Items.Add(textBox3.Text);
+            DPDataBaseDataSet3TableAdapters.QustionTableAdapter qustionTableAdapter = new DPDataBaseDataSet3TableAdapters.QustionTableAdapter();
+            qustionTableAdapter.Insert(listBox1.SelectedItem.ToString(), textBox2.Text, textBox3.Text);
+            questionsave = 1;
             panel5.Visible = false;
             textBox3.Clear();
         }
@@ -594,8 +649,14 @@ namespace DiplomaProject
         {
             if (checkedListBox1.SelectedIndex != -1)
             {
+                string cmdstr = "DELETE question FROM Qustion WHERE anwoption ='" + checkedListBox1.SelectedItem.ToString() + "'";
+                OleDbCommand anwdelete = new OleDbCommand(cmdstr, conn);
+                conn.Open();
+                anwdelete.ExecuteNonQuery();
+                conn.Close();
                 string sitem = checkedListBox1.SelectedItem.ToString();
                 checkedListBox1.Items.Remove(sitem);
+                
             }
             else
             {
@@ -605,6 +666,42 @@ namespace DiplomaProject
 
         private void button17_Click(object sender, EventArgs e)
         {
+            var result = MessageBox.Show("Сохранить вопрос?", "Сохранить", MessageBoxButtons.YesNoCancel);
+            if (result == DialogResult.Yes)
+            {
+                if (textBox2.Text == "")
+                {
+                    MessageBox.Show("Нет вопроса", "Ошибка");
+                }
+                else
+                {
+                    savequestion();
+                    testload();
+                    listBox2.SelectedItem = textBox2.Text;
+                    questionsave = 0;
+                }
+            }
+            if (result == DialogResult.No)
+            {
+                int n = checkedListBox1.Items.Count;
+                int i = 0;
+                while (i<n)
+                {
+                    string cmdstr = "DELETE question FROM Qustion WHERE question = '" + textBox2.Text + "'";
+                    OleDbCommand command = new OleDbCommand(cmdstr, conn);
+                    conn.Open();
+                    command.ExecuteNonQuery();
+                    conn.Close();
+                    questionsave = 0;
+                }
+                textBox2.Clear();
+                checkedListBox1.Items.Clear();
+
+            }
+        }
+
+        private void savequestion()
+        {
             int i = 0;
             int n = checkedListBox1.Items.Count;
             if (listBox2.SelectedIndex == -1)
@@ -613,76 +710,22 @@ namespace DiplomaProject
                 {
                     if (checkedListBox1.GetItemChecked(i) == true)
                     {
-                        string cmdstr = "SELECT COUNT(*) FROM Tests";
-                        OleDbCommand command = new OleDbCommand(cmdstr, conn);
-                        conn.Open();
-                        int count = (int)command.ExecuteScalar();
-                        conn.Close();
                         DPDataBaseDataSet2TableAdapters.TestsTableAdapter testsTableAdapter = new DPDataBaseDataSet2TableAdapters.TestsTableAdapter();
-                        testsTableAdapter.Insert(count,listBox1.SelectedItem.ToString(), textBox2.Text, checkedListBox1.Items[i].ToString());
+                        testsTableAdapter.Insert(listBox1.SelectedItem.ToString(), textBox2.Text, checkedListBox1.Items[i].ToString());
                         break;
                     }
                     else
                     {
-                        i++;
-                    }
-                }
-                i = 0;
-                while (i < n)
-                {
-                    if (checkedListBox1.GetItemChecked(i) == true)
-                    {
-                        i = 0;
-                        while (i < n)
-                        {
-                            string cmdstr = "SELECT COUNT(*) FROM Qustion";
-                            OleDbCommand command = new OleDbCommand(cmdstr, conn);
-                            conn.Open();
-                            int count = (int)command.ExecuteScalar();
-                            conn.Close();
-                            DPDataBaseDataSet3TableAdapters.QustionTableAdapter qustionTableAdapter = new DPDataBaseDataSet3TableAdapters.QustionTableAdapter();
-                            qustionTableAdapter.Insert(count, listBox1.SelectedItem.ToString(), textBox2.Text, checkedListBox1.Items[i].ToString());
-                            i++;
-                        }
-                        break;
-                    }
-                    else
-                    {
-                        if (i == n-1)
+                        if (i == n - 1)
                         {
                             MessageBox.Show("Выберите верный ответ", "Не выбран ответ");
                             break;
                         }
-                        else
-                        {
-                            i++;
-                        }
-                    }
-                }
-
-            
-            
-            }
-            else
-            {
-                while (i < n)
-                {
-                    if (checkedListBox1.GetItemChecked(i) == true)
-                    {
-                        string cmdstr = "SELECT COUNT(*) FROM Tests";
-                        OleDbCommand command = new OleDbCommand(cmdstr, conn);
-                        conn.Open();
-                        int count = (int)command.ExecuteScalar();
-                        conn.Close();
-                        DPDataBaseDataSet2TableAdapters.TestsTableAdapter testsTableAdapter = new DPDataBaseDataSet2TableAdapters.TestsTableAdapter();
-                        testsTableAdapter.Update()
-                        break;
-                    }
-                    else
-                    {
                         i++;
                     }
                 }
+
+
             }
         }
 
@@ -721,9 +764,180 @@ namespace DiplomaProject
             }
         }
 
+        private void button18_Click(object sender, EventArgs e)
+        {
+           
+            if (questionsave == 1)
+            {
+                var result = MessageBox.Show("Сохранить вопрос?", "Сохранить", MessageBoxButtons.YesNoCancel);
+                if (result == DialogResult.No)
+                {
+                    checkedListBox1.Items.Clear();
+                    textBox2.Clear();
+                    listBox2.SelectedIndex = -1;
+                    questionsave = 0;
+                }
+                if (result == DialogResult.Yes)
+                {
+                    savequestion();
+                    checkedListBox1.Items.Clear();
+                    textBox2.Clear();
+                    listBox2.SelectedIndex = -1;
+                    questionsave = 0;
+                }
+
+                
+            }
+            
+            
+        }   
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            panel5.Visible = false;
+            textBox2.Clear();
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Удалить вопрос?", "Удалить?", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                if (listBox2.SelectedIndex != -1)
+                {
+                    string cmdstr = "SELECT question FROM Tests WHERE question = '" + listBox2.SelectedItem + "'";
+                    OleDbCommand command = new OleDbCommand(cmdstr, conn);
+                    conn.Open();
+                    string deletequestion = (string)command.ExecuteScalar();
+                    conn.Close();
+                    cmdstr = "DELETE question FROM Tests WHERE question ='" + deletequestion + "'";
+                    OleDbCommand testsdelete = new OleDbCommand(cmdstr, conn);
+                    conn.Open();
+                    testsdelete.ExecuteNonQuery();
+                    conn.Close();
+                    cmdstr = "DELETE question FROM Qustion WHERE question ='" + deletequestion + "'";
+                    OleDbCommand deletequstion = new OleDbCommand(cmdstr, conn);
+                    conn.Open();
+                    deletequstion.ExecuteNonQuery();
+                    conn.Close();
+                    testload();
+                }
+                else
+                {
+                    MessageBox.Show("Выберите вопрос для удаления", "Ошибка удаления");
+                }
+            }
+
+        }
+        private void testload()
+        {
+            string  cmdstr = "SELECT question FROM Tests WHERE Test ='" + listBox1.SelectedItem + "'";
+            OleDbCommand commandtest = new OleDbCommand(cmdstr, conn);
+            IList<string> lc = new List<string>();
+            conn.Open();
+            OleDbDataReader reader = commandtest.ExecuteReader();
+            while (reader.Read())
+            {
+                lc.Add(reader[0].ToString());
+            }
+            conn.Close();
+            listBox2.DataSource = null;
+            listBox2.DataSource = lc;
+            listBox2.DisplayMember = "question";
+            listBox2.SelectedIndex = -1;
+            panel1.Visible = false;
+            сохранитьToolStripMenuItem.Visible = false;
+            вставитьToolStripMenuItem.Visible = false;
+            panel4.Visible = true;
+        }
+
         private void Form2_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void удалитьToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            int n = listBox1.Items.Count;
+            int i = 0;
+            if (n != 0)
+            {
+                while (i < n)
+                {
+                    string cmdstr = "SELECT Type FROM Lectures WHERE Lecture = '" + listBox1.Items[i] + "'";
+                    OleDbCommand command = new OleDbCommand(cmdstr, conn);
+                    conn.Open();
+                    string type = (string)command.ExecuteScalar();
+                    conn.Close();
+                    if (type == "Lecture")
+                    {
+                        File.Delete("./text/" + comboBoxT.Text + "/" + listBox1.Items[i] + ".rtf");
+                        cmdstr = "DELETE Lecture FROM Lectures WHERE Lecture ='" + listBox1.Items[i] + "'";
+                        OleDbCommand lecturesdelete = new OleDbCommand(cmdstr, conn);
+                        conn.Open();
+                        lecturesdelete.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                    if (type == "Test")
+                    {
+                        cmdstr = "DELETE question FROM Tests WHERE Test ='" + listBox1.Items[i] + "'";
+                        OleDbCommand testsdelete = new OleDbCommand(cmdstr, conn);
+                        conn.Open();
+                        testsdelete.ExecuteNonQuery();
+                        conn.Close();
+                        cmdstr = "DELETE question FROM Qustion WHERE Test ='" + listBox1.Items[i] + "'";
+                        OleDbCommand deletequstion = new OleDbCommand(cmdstr, conn);
+                        conn.Open();
+                        deletequstion.ExecuteNonQuery();
+                        conn.Close();
+                        cmdstr = "DELETE Lecture FROM Lectures WHERE Lecture ='" + listBox1.Items[i] + "'";
+                        OleDbCommand Testdelete = new OleDbCommand(cmdstr, conn);
+                        conn.Open();
+                        Testdelete.ExecuteNonQuery();
+                        conn.Close();
+                    }
+
+                    i++;
+                }
+            }
+            if (comboBoxT.SelectedIndex != -1)
+            {
+                int deleteindex = comboBoxT.SelectedIndex;
+                string cmdstr = "DELETE Topic FROM Topics WHERE Topic ='" + comboBoxT.Text + "'";
+                OleDbCommand topicdelete = new OleDbCommand(cmdstr, conn);
+                conn.Open();
+                int f = topicdelete.ExecuteNonQuery();
+                conn.Close();
+                comboBoxT.SelectedIndex = -1;
+            }
+            else
+            {
+                MessageBox.Show("Выберите тему для удаления", "Ошибка удаления");
+            }
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex == -1) { }
+            else
+            {
+                string n = listBox1.SelectedItem.ToString();
+                richTextBox1.SaveFile("./text/" + comboBoxT.Text + "/" + listBox1.SelectedItem + ".rtf");
+            }
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string item = (string)listBox1.SelectedItem;
+                label3.Text = item;
+                richTextBox1.SaveFile("./text/" + comboBoxT.Text + "/" + listBox1.SelectedItem.ToString() + ".rtf");
+            }
+            catch
+            {
+
+            }
         }
     }
 }

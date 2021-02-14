@@ -389,10 +389,10 @@ namespace DiplomaProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LecturesRow AddLecturesRow(int __, string Lecture, string Topic, string Type) {
+            public LecturesRow AddLecturesRow(string Lecture, string Topic, string Type) {
                 LecturesRow rowLecturesRow = ((LecturesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        __,
+                        null,
                         Lecture,
                         Topic,
                         Type};
@@ -446,6 +446,9 @@ namespace DiplomaProject {
                 base.Columns.Add(this.columnType);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this._column_}, true));
+                this._column_.AutoIncrement = true;
+                this._column_.AutoIncrementSeed = -1;
+                this._column_.AutoIncrementStep = -1;
                 this._column_.AllowDBNull = false;
                 this._column_.Unique = true;
                 this.columnLecture.MaxLength = 255;
@@ -866,20 +869,17 @@ namespace DiplomaProject.DPDataBaseDataSet1TableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Type", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Type", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Lectures` (`№`, `Lecture`, `Topic`, `Type`) VALUES (?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Lectures` (`Lecture`, `Topic`, `Type`) VALUES (?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("№", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "№", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Lecture", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Lecture", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Topic", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Topic", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Type", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Type", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `Lectures` SET `№` = ?, `Lecture` = ?, `Topic` = ?, `Type` = ? WHERE ((`№`" +
-                " = ?) AND ((? = 1 AND `Lecture` IS NULL) OR (`Lecture` = ?)) AND ((? = 1 AND `To" +
-                "pic` IS NULL) OR (`Topic` = ?)) AND ((? = 1 AND `Type` IS NULL) OR (`Type` = ?))" +
-                ")";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `Lectures` SET `Lecture` = ?, `Topic` = ?, `Type` = ? WHERE ((`№` = ?) AND" +
+                " ((? = 1 AND `Lecture` IS NULL) OR (`Lecture` = ?)) AND ((? = 1 AND `Topic` IS N" +
+                "ULL) OR (`Topic` = ?)) AND ((? = 1 AND `Type` IS NULL) OR (`Type` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("№", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "№", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Lecture", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Lecture", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Topic", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Topic", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Type", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Type", global::System.Data.DataRowVersion.Current, false, null));
@@ -1011,25 +1011,24 @@ namespace DiplomaProject.DPDataBaseDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int __, string Lecture, string Topic, string Type) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(__));
+        public virtual int Insert(string Lecture, string Topic, string Type) {
             if ((Lecture == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Lecture));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Lecture));
             }
             if ((Topic == null)) {
                 throw new global::System.ArgumentNullException("Topic");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Topic));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Topic));
             }
             if ((Type == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Type));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Type));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1051,49 +1050,48 @@ namespace DiplomaProject.DPDataBaseDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int __, string Lecture, string Topic, string Type, int _Original__, string Original_Lecture, string Original_Topic, string Original_Type) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(__));
+        public virtual int Update(string Lecture, string Topic, string Type, int _Original__, string Original_Lecture, string Original_Topic, string Original_Type) {
             if ((Lecture == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Lecture));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Lecture));
             }
             if ((Topic == null)) {
                 throw new global::System.ArgumentNullException("Topic");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Topic));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Topic));
             }
             if ((Type == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Type));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Type));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(_Original__));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(_Original__));
             if ((Original_Lecture == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Lecture));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Lecture));
             }
             if ((Original_Topic == null)) {
                 throw new global::System.ArgumentNullException("Original_Topic");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Topic));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Topic));
             }
             if ((Original_Type == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Type));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Type));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1109,14 +1107,6 @@ namespace DiplomaProject.DPDataBaseDataSet1TableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Lecture, string Topic, string Type, int _Original__, string Original_Lecture, string Original_Topic, string Original_Type) {
-            return this.Update(_Original__, Lecture, Topic, Type, _Original__, Original_Lecture, Original_Topic, Original_Type);
         }
     }
     
