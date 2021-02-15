@@ -59,5 +59,12 @@ namespace DiplomaProject
         {
             Application.Exit();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form Form3 = new Form3();
+            Form3.ShowDialog();
+        }
     }
 }

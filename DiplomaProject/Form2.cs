@@ -758,9 +758,6 @@ namespace DiplomaProject
                 checkedListBox1.SelectedItem = answer;
                 checkedListBox1.SetItemChecked(checkedListBox1.SelectedIndex, true);
                 checkedListBox1.SelectedIndex = -1;
-
-
-
             }
         }
 
@@ -938,6 +935,16 @@ namespace DiplomaProject
             {
 
             }
+        }
+
+        private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            var list = sender as CheckedListBox;
+            if (e.NewValue == CheckState.Checked)
+                foreach (int index in list.CheckedIndices)
+                    if (index != e.Index)
+                        list.SetItemChecked(index, false);
+
         }
     }
 }
