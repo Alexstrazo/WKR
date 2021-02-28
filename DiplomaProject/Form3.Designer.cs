@@ -51,7 +51,6 @@ namespace DiplomaProject
             this.label5 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -320,15 +319,6 @@ namespace DiplomaProject
             this.label4.Text = "Вопрос:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(150, 120);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 20);
-            this.label1.TabIndex = 29;
-            // 
             // richTextBox1
             // 
             this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -416,7 +406,6 @@ namespace DiplomaProject
             this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.menuStrip1);
@@ -469,7 +458,6 @@ namespace DiplomaProject
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource dPDataBaseDataSetBindingSource;
         private DPDataBaseDataSet dPDataBaseDataSet;
         private System.Windows.Forms.Panel panel1;

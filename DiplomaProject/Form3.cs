@@ -16,7 +16,7 @@ namespace DiplomaProject
     {
         float testresult = 0;
         int countoprion;
-        OleDbConnection conn = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = DPDataBase.accdb");
+        OleDbConnection conn = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = DPDataBase.accdb; Jet OLEDB:Database Password=ЦЛКМЬ51;");
         public Form3()
         {
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace DiplomaProject
 
         private void loadlecture()
         {
-            label1.Text = comboBoxT.Text;
+
             string cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
             OleDbCommand command = new OleDbCommand(cmdstr, conn);
             IList<string> lc = new List<string>();
@@ -113,6 +113,7 @@ namespace DiplomaProject
             listBox2.DisplayMember = "question";
             panel1.Visible = false;
             panel4.Visible = true;
+            label6.Text = "";
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -216,13 +217,15 @@ namespace DiplomaProject
         {
             if (testresult != 0)
             {
-                float result = (testresult/countoprion)*100;
+                double result = (testresult/countoprion)*100;
+                result = Math.Round(result, 1);
                 label6.Text = "Ваш результат: " + result.ToString();
             }
             else
             {
-                label6.Text = "Ваш результат:: " + testresult.ToString();
+                label6.Text = "Ваш результат: " + testresult.ToString();
             }
+            button20.Visible = false;
         }
 
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)

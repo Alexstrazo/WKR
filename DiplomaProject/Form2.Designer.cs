@@ -211,7 +211,6 @@ namespace DiplomaProject
             this.listBox1.BackColor = System.Drawing.Color.White;
             this.listBox1.ContextMenuStrip = this.contextMenuStrip1;
             this.listBox1.DataSource = this.lecturesBindingSource;
-            this.listBox1.DisplayMember = "Lecture";
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
@@ -262,7 +261,7 @@ namespace DiplomaProject
             resources.ApplyResources(this.comboBoxT, "comboBoxT");
             this.comboBoxT.FormattingEnabled = true;
             this.comboBoxT.Name = "comboBoxT";
-            this.comboBoxT.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBoxT.SelectedIndexChanged += new System.EventHandler(this.comboBoxT_SelectedIndexChanged);
             // 
             // contextMenuStrip2
             // 
@@ -671,14 +670,14 @@ namespace DiplomaProject
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form2";

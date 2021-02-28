@@ -22,7 +22,7 @@ namespace DiplomaProject
         float sizeStyle;
         int swindex = 0;
         int questionsave=0;
-        OleDbConnection conn = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = DPDataBase.accdb");
+        OleDbConnection conn = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = DPDataBase.accdb; Jet OLEDB:Database Password=ЦЛКМЬ51;");
 
 
         public Form2()
@@ -42,7 +42,7 @@ namespace DiplomaProject
             panel5.Visible = false;
             сохранитьToolStripMenuItem.Visible = false;
             вставитьToolStripMenuItem.Visible = false;
-            openFileDialog1.Filter = "Картинки|*.jpeg;*.jpg;*.png;*.ico;*.bmp;*.emp;*..wmf;*.tiff";
+            openFileDialog1.Filter = "Картинки|*.jpeg;*.jpg;*.png;*.ico;*.bmp;*.emp;*.wmf;*.tiff";
             openFileDialog2.Filter = "Документы|*.rtf;";
 
             comboBoxFontSize.SelectedItem = "8";
@@ -199,7 +199,7 @@ namespace DiplomaProject
             this.Close();
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxT_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxT.SelectedIndex != -1)
             {
@@ -628,6 +628,10 @@ namespace DiplomaProject
                 panel2.Visible = true;
                 swindex = 4;
             }
+            else
+            {
+                MessageBox.Show("Выберите или создайте тему", "Создание теста");
+            }
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -929,7 +933,7 @@ namespace DiplomaProject
             {
                 string item = (string)listBox1.SelectedItem;
                 label3.Text = item;
-                richTextBox1.SaveFile("./text/" + comboBoxT.Text + "/" + listBox1.SelectedItem.ToString() + ".rtf");
+                richTextBox1.SaveFile("./text/" + comboBoxT.Text + "/" + (string)listBox1.SelectedItem + ".rtf");
             }
             catch
             {
@@ -946,5 +950,6 @@ namespace DiplomaProject
                         list.SetItemChecked(index, false);
 
         }
+
     }
 }
