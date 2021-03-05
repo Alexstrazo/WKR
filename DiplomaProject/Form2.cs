@@ -386,20 +386,7 @@ namespace DiplomaProject
                         if (textBox1.Text == "") { MessageBox.Show("Введите название", "Создание темы"); }
                         else
                         {
-                            string cmdstr = "SELECT COUNT(*) FROM Topics";
-                            OleDbCommand command = new OleDbCommand(cmdstr,conn);
-                            conn.Open();
-                            int count = (int)command.ExecuteScalar();
-                            conn.Close();
-                            DPDataBaseDataSetTableAdapters.TopicsTableAdapter topicsTableAdapter = new DPDataBaseDataSetTableAdapters.TopicsTableAdapter();
-                            topicsTableAdapter.Insert(textBox1.Text);
-                            this.topicsTableAdapter.Fill(this.dPDataBaseDataSet.Topics);
-                            comboBoxT.SelectedIndex = count;
-                            if (Directory.Exists("./text/" + textBox1.Text)) { }
-                            else
-                            {
-                                Directory.CreateDirectory("./text/" + textBox1.Text);
-                            }
+                            casecreatone();
 
                         }
                        
@@ -409,29 +396,7 @@ namespace DiplomaProject
                         if (textBox1.Text == "") { MessageBox.Show("Введите название","Создание лекции"); }
                     else
                     {
-                       
-                        string cmdstr = "SELECT COUNT(*) FROM Lectures";
-                        string type = "Lecture";
-                        OleDbCommand command = new OleDbCommand(cmdstr, conn);
-                        conn.Open();
-                        int count = (int)command.ExecuteScalar();
-                        conn.Close();
-                        DPDataBaseDataSet1TableAdapters.LecturesTableAdapter lecturesTableAdapter = new DPDataBaseDataSet1TableAdapters.LecturesTableAdapter();
-                        lecturesTableAdapter.Insert(textBox1.Text, comboBoxT.Text,type);
-                            File.AppendAllText("./text/"+comboBoxT.Text+"/" + textBox1.Text + ".rtf", @"{\rtf}");
-                        cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
-                        command = new OleDbCommand(cmdstr, conn);
-                        IList<string> lc = new List<string>();
-                        conn.Open();
-                        OleDbDataReader reader = command.ExecuteReader();
-                        while (reader.Read())
-                        {
-                            lc.Add(reader[0].ToString());
-                        }
-                        conn.Close();
-                        listBox1.DataSource = lc;
-                        listBox1.DisplayMember = "Lecture";
-                        listBox1.SelectedItem = textBox1.Text;
+                        casecreatwo();                        
                     }
                     this.lecturesTableAdapter.Fill(this.dPDataBaseDataSet1.Lectures);
                     break;
@@ -439,56 +404,14 @@ namespace DiplomaProject
                     if (textBox1.Text == "") { MessageBox.Show("Введите название", "Создание лекции"); }
                     else
                     {
-                        string cmdstr = "SELECT COUNT(*) FROM Lectures";
-                        string type = "Lecture";
-                        OleDbCommand command = new OleDbCommand(cmdstr, conn);
-                        conn.Open();
-                        int count = (int)command.ExecuteScalar();
-                        conn.Close();
-                        DPDataBaseDataSet1TableAdapters.LecturesTableAdapter lecturesTableAdapter = new DPDataBaseDataSet1TableAdapters.LecturesTableAdapter();
-                        lecturesTableAdapter.Insert(textBox1.Text, comboBoxT.Text,type);
-                        richTextBox1.SaveFile("./text/" + comboBoxT.Text + "/" + textBox1.Text + ".rtf");
-                        richTextBox1.Clear();
-                        this.lecturesTableAdapter.Fill(this.dPDataBaseDataSet1.Lectures);
-                        cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
-                        command = new OleDbCommand(cmdstr, conn);
-                        IList<string> lc = new List<string>();
-                        conn.Open();
-                        OleDbDataReader reader = command.ExecuteReader();
-                        while (reader.Read())
-                        {
-                            lc.Add(reader[0].ToString());
-                        }
-                        conn.Close();
-                        listBox1.DataSource = lc;
-                        listBox1.DisplayMember = "Lecture";
-                        listBox1.SelectedItem = textBox1.Text;
+                        casecreatethree();
                     }
                     break;
                 case 4:
                     if (textBox1.Text == "") { MessageBox.Show("Введите название", "Создание теста"); }
                     else
                     {
-                        string cmdstr = "SELECT COUNT(*) FROM Lectures";
-                        string type = "Test";
-                        OleDbCommand command = new OleDbCommand(cmdstr, conn);
-                        conn.Open();
-                        int count = (int)command.ExecuteScalar();
-                        conn.Close();
-                        DPDataBaseDataSet1TableAdapters.LecturesTableAdapter lecturesTableAdapter = new DPDataBaseDataSet1TableAdapters.LecturesTableAdapter();
-                        lecturesTableAdapter.Insert(textBox1.Text, comboBoxT.Text, type);
-                        cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
-                        command = new OleDbCommand(cmdstr, conn);
-                        IList<string> lc = new List<string>();
-                        conn.Open();
-                        OleDbDataReader reader = command.ExecuteReader();
-                        while (reader.Read())
-                        {
-                            lc.Add(reader[0].ToString());
-                        }
-                        conn.Close();
-                        listBox1.DataSource = lc;
-                        listBox1.DisplayMember = "Lecture";
+                        casecreatefour();
                         
                     }
                     this.lecturesTableAdapter.Fill(this.dPDataBaseDataSet1.Lectures);
@@ -498,6 +421,106 @@ namespace DiplomaProject
         
         }
 
+        private void casecreatone ()
+        {
+            if (textBox1.Text == "") { MessageBox.Show("Введите название", "Создание темы"); }
+            else
+            {
+                string cmdstr = "SELECT COUNT(*) FROM Topics";
+                OleDbCommand command = new OleDbCommand(cmdstr, conn);
+                conn.Open();
+                int count = (int)command.ExecuteScalar();
+                conn.Close();
+                DPDataBaseDataSetTableAdapters.TopicsTableAdapter topicsTableAdapter = new DPDataBaseDataSetTableAdapters.TopicsTableAdapter();
+                topicsTableAdapter.Insert(textBox1.Text);
+                this.topicsTableAdapter.Fill(this.dPDataBaseDataSet.Topics);
+                comboBoxT.SelectedIndex = count;
+                if (Directory.Exists("./text/" + textBox1.Text)) { }
+                else
+                {
+                    Directory.CreateDirectory("./text/" + textBox1.Text);
+                }
+
+            }
+        }
+        
+        private void casecreatwo()
+        {
+            string cmdstr = "SELECT COUNT(*) FROM Lectures";
+            string type = "Lecture";
+            OleDbCommand command = new OleDbCommand(cmdstr, conn);
+            conn.Open();
+            int count = (int)command.ExecuteScalar();
+            conn.Close();
+            DPDataBaseDataSet1TableAdapters.LecturesTableAdapter lecturesTableAdapter = new DPDataBaseDataSet1TableAdapters.LecturesTableAdapter();
+            lecturesTableAdapter.Insert(textBox1.Text, comboBoxT.Text, type);
+            File.AppendAllText("./text/" + comboBoxT.Text + "/" + textBox1.Text + ".rtf", @"{\rtf}");
+            cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
+            command = new OleDbCommand(cmdstr, conn);
+            IList<string> lc = new List<string>();
+            conn.Open();
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                lc.Add(reader[0].ToString());
+            }
+            conn.Close();   
+            listBox1.DataSource = lc;
+            listBox1.DisplayMember = "Lecture";
+            listBox1.SelectedItem = textBox1.Text;
+        }
+
+        private void casecreatethree()
+        {
+            string cmdstr = "SELECT COUNT(*) FROM Lectures";
+            string type = "Lecture";
+            OleDbCommand command = new OleDbCommand(cmdstr, conn);
+            conn.Open();
+            int count = (int)command.ExecuteScalar();
+            conn.Close();
+            DPDataBaseDataSet1TableAdapters.LecturesTableAdapter lecturesTableAdapter = new DPDataBaseDataSet1TableAdapters.LecturesTableAdapter();
+            lecturesTableAdapter.Insert(textBox1.Text, comboBoxT.Text, type);
+            richTextBox1.SaveFile("./text/" + comboBoxT.Text + "/" + textBox1.Text + ".rtf");
+            richTextBox1.Clear();
+            this.lecturesTableAdapter.Fill(this.dPDataBaseDataSet1.Lectures);
+            cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
+            command = new OleDbCommand(cmdstr, conn);
+            IList<string> lc = new List<string>();
+            conn.Open();
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                lc.Add(reader[0].ToString());
+            }
+            conn.Close();
+            listBox1.DataSource = lc;
+            listBox1.DisplayMember = "Lecture";
+            listBox1.SelectedItem = textBox1.Text;
+        }
+
+        private void casecreatefour()
+        {
+            string cmdstr = "SELECT COUNT(*) FROM Lectures";
+            string type = "Test";
+            OleDbCommand command = new OleDbCommand(cmdstr, conn);
+            conn.Open();
+            int count = (int)command.ExecuteScalar();
+            conn.Close();
+            DPDataBaseDataSet1TableAdapters.LecturesTableAdapter lecturesTableAdapter = new DPDataBaseDataSet1TableAdapters.LecturesTableAdapter();
+            lecturesTableAdapter.Insert(textBox1.Text, comboBoxT.Text, type);
+            cmdstr = "SELECT Lecture FROM Lectures WHERE Topic = '" + comboBoxT.Text + "'";
+            command = new OleDbCommand(cmdstr, conn);
+            IList<string> lc = new List<string>();
+            conn.Open();
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                lc.Add(reader[0].ToString());
+            }
+            conn.Close();
+            listBox1.DataSource = lc;
+            listBox1.DisplayMember = "Lecture";
+        }
         private void button12_Click(object sender, EventArgs e)
         {
 
